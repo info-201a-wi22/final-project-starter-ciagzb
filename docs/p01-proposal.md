@@ -113,6 +113,8 @@ For each data list, there are some common limitations. One is the coverage of th
 
 * [Data and Code for: Civil Rights Enforcement and the Racial Wage Gap](https://www.openicpsr.org/openicpsr/project/138924/version/V1/view;jsessionid=FD8B385056E3E3CA4F9B0022E72DF3C7)<br />
 
+All of the links have the references in [Reference](https://github.com/info-201a-wi22/final-project-starter-ciagzb/blob/main/docs/p01-proposal.md#references)<br />
+
 **Question related to the field:**<br />
 * Would one’s race/gender/age affect his/her income? If so, how? If not, why?<br />
 
