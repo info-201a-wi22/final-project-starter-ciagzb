@@ -1,12 +1,16 @@
-# The `\data` Directory: Project Data Summary 
+# The `\data` Directory: Project Data Summary
 
 In our project, we use the following data files and Application Programming Interfaces:
 
 ### Data files (TODO: Update/delete)
 |Data File Name | Brief Description|
 |---------------| -----------------|
-|[example.cvs](./example.csv) | This file contains temperature data. (See report for details.)
-|[another-file](./filename2.csv) | Description ... 
+|[example.csv](./example.csv) | This file contains temperature data. (See report for details.)
+|[Analyze_Gender_Pay_Gap.csv](./Analyze_Gender_Pay_Gap.csv) | Glassdoor- Analyze Gender Pay Gap from Kaggle
+|[Gender_wage_gap.csv](./Gender_wage_gap.csv) | Gender wage gap data from OECD
+|[UK_Gender_Pay_Gap_Data.csv](./UK_Gender_Pay_Gap_Data.csv) | UK Gender Pay Gap Data - 2021 to 2022
+|[Work_Hour_Prediction_Challenge.csv](./Work_Hour_Prediction_Challenge.csv) | Work Hour Prediction Challenge from Kaggle
+|[Exploring_The_Wage_Gap.csv](./Exploring_The_Wage_Gap.csv) | Exploring The Wage Gap from Kaggle
 
 ### Application Programming Interfaces (API) (TODO: Update/delete)
 
@@ -21,6 +25,6 @@ Sellers lists and the books that have been reviewed in the New York Times. An ov
 * See examples above.
 
 # NOTE 2:  Clear and Concise Documentation
-* Please remember your audience (prospective employers, open source colleagues, TAs, Instructors). Therefore, 
+* Please remember your audience (prospective employers, open source colleagues, TAs, Instructors). Therefore,
 aim for clarity and conciseness.
 * When done, be sure to delete these NOTE sections and the example CSV file (which are intended for you, of course, not your audience!)
