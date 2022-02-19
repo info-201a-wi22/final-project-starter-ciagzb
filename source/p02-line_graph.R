@@ -1,5 +1,9 @@
 #Chart 
-library(dpyler)
+install.packages("dplyr")
+install.packages("ggplot2")
+install.packages("plotly")
+
+library(dplyr)
 library(ggplot2)
 library(plotly)
 gender_wage <- read.csv("https://raw.githubusercontent.com/info-201a-wi22/final-project-starter-ciagzb/main/data/Clean_up%20Data%20for%20p02.csv")
