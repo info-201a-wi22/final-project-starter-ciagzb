@@ -2,8 +2,8 @@
 library(dpyler)
 library(ggplot2)
 library(plotly)
-gender_wage <- read.csv("./data/Clean_up data for p02.csv")
-wage <- read.csv("./data/DP_LIVE_18022022014344236.csv")
+gender_wage <- read.csv("https://raw.githubusercontent.com/info-201a-wi22/final-project-starter-ciagzb/main/data/Clean_up%20Data%20for%20p02.csv")
+wage <- read.csv("https://raw.githubusercontent.com/info-201a-wi22/final-project-starter-ciagzb/main/data/Gender_wage_gap.csv")
 
 # Understand the increase/decrease in wage gap in Norway, USA, and Mexico
 # in 2005, 2010, 2015, 2020.
