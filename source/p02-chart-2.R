@@ -1,4 +1,4 @@
-wage_gap <- read.csv("/Users/haochen/Desktop/Clean_up\ Data\ for\ p02.csv")
+wage_gap <- read.csv("https://raw.githubusercontent.com/info-201a-wi22/final-project-starter-ciagzb/main/data/Clean_up%20Data%20for%20p02.csv")
 
 library(tidyverse)
 library(maps)
