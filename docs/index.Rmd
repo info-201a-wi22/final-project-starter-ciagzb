@@ -174,5 +174,5 @@ Insights: As we can see in the chart, there is a huge gap between the biggest wa
 
 ## Aggregate Table
 ```{r, echo=FALSE}
-p02_code(For Cleaning up data and Calculations)
+summary(Final)
 ```
