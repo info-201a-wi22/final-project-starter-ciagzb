@@ -1,6 +1,7 @@
 library(ggplot2)
-df <- read.csv("https://raw.githubusercontent.com/info-201a-wi22/final-project-starter-ciagzb/main/data/Clean_up%20Data%20for%20p02.csv")
-View(df)
+df <- read.csv("../data/Clean_up Data for p02.csv") %>%
+  na.omit()
+# View(df)
 plotbox <- ggplot(df, aes(x="", y=Gender_Index_2019)) + geom_boxplot()
 plotbox
 

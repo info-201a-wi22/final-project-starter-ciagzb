@@ -129,8 +129,6 @@ Misra, J., & Murray-Close, M. (2014). The Gender Wage Gap in the United States a
 
 NA
 
-## Summary
-By using plots and tables we have made, we are able to learn different countries' different wage situations. For example, among Norway, USA, and Mexico in 2005, 2010, 2015, 2020, we have found that the US has the widest gap while Norway has the least gap percentage, and Mexico has the largest decrease in gender wage gap. The result of the gender wage gap shows different trend from HDI ranking, which means that well-developed countries may still has room for improvement in gender equality. Such conclusion can also be found in other plots, and more results can be noticed from other plots.
 
 
 ## Our Plots
@@ -143,7 +141,7 @@ source("../source/p02_code(For Cleaning up data and Calculations).R")
 ```
 
 ```{r, echo=FALSE}
-plot(plot)
+plot(plot1)
 ```
 
 Plot 1: 
@@ -163,7 +161,7 @@ Insights: Because when the wage gap value and gender index are both small will i
 
 
 ```{r, echo=FALSE}
-plot(line_point_chart)
+plot(plot2)
 ```
 
 Plot 3: 
@@ -176,3 +174,7 @@ Insights: As we can see in the chart, there is a huge gap between the biggest wa
 ```{r, echo=FALSE}
 summary(Final)
 ```
+
+## Summary Information
+
+For summary information, we have calculated some values regarding the gender wage gap and gender index statistics of the countries given in the data. We calculated the average Gender Inequality Index and Wage Gap Value of the given countries. The numbers are `r average_gender_index` and `r Avg_wage_gap_value`, respectively. In addition, we calculated the median wage gap value, `r Median_wage_gap_value`. Thus, we are able to determine which countries are above or below the average, and see what attributes they have, in terms of continent, GDP, etc. Also, we explored that there are `r num_above_average` countries in the list above average wage gap value. Finally, the country with the lowest wage gap (i.e. the most equal pay), is `r country`, with a wage gap value of `r min_gap`

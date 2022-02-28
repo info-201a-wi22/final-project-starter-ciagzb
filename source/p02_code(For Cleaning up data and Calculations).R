@@ -1,12 +1,11 @@
 library(dplyr)
-install.packages("countrycode")
+#install.packages("countrycode")
 library(countrycode)
 
 
 #Clean up Wage Gap Data
-Wage_gap <- read.csv("/Users/ciara/Desktop/data1.csv") 
-Index <- read.csv("/Users/ciara/Desktop/Gender Inequality Index (GII).csv")
-View(Gender_Index)
+Wage_gap <- read.csv("../data/DP_LIVE_18022022014344236.csv") 
+Index <- read.csv("../data/Gender Inequality Index (GII).csv")
 
 WG_most_recent <- Wage_gap %>% 
   group_by(LOCATION) %>% 
@@ -16,7 +15,9 @@ WG_most_recent <- Wage_gap %>%
     )
     
 WG_new <- WG_most_recent %>% 
-  mutate(Country = countrycode(LOCATION, origin = 'iso3c', destination = 'country.name' ))
+  mutate(Country = countrycode(LOCATION, origin = 'iso3c', 
+                               destination = 'country.name',
+                               warn = FALSE))
 
 WG_for_join <- WG_new %>% 
   select(Country, INDICATOR, SUBJECT, TIME, Value)
@@ -31,42 +32,37 @@ Joined <- left_join(WG_for_join, Index_1, by = "LOCATION", rm.na = TRUE)
 
 #New datafrome
 Final <- Joined %>% 
-  select(LOCATION, Country.x, HDI.Rank, TIME, Value, `2019`) %>% 
-  rename("Gender_Index_2019" = "2019") %>% 
+  select(LOCATION, Country.x, HDI.Rank, TIME, Value, X2019) %>% 
+  rename("Gender_Index_2019" = "X2019") %>% 
   rename("Wage_Gap_Value" = Value) %>% 
-  arrange(HDI.Rank)
+  arrange(HDI.Rank) %>%
+  na.omit()
+  
 
-write.csv(Final, "/Users/ciara/Desktop/Clean_up Data for p02.csv", row.names = FALSE)
+# write.csv(Final, "/Users/ciara/Desktop/Clean_up Data for p02.csv", row.names = FALSE)
 
 #Calculations
 #Average Wage_Gap_Value
-Avg_WGV <- mean(Final$Wage_Gap_Value)
+Avg_wage_gap_value <- mean(Final$Wage_Gap_Value)
 #Median Wage_Gap_Value
-Median_WGV <- median(Final$Wage_Gap_Value)
+Median_wage_gap_value <- median(Final$Wage_Gap_Value)
 #Average Gender Index in year 2019
-Avg_GI <- mean(Final$Gender_Index_2019)
-#Countries with above average Wage_Gap_Value
+average_gender_index <- mean(as.numeric(Final$Gender_Index_2019))
+#Countries with above average Wage_Gap_Value)
 C_aboveWGV <- Final %>% 
   select(LOCATION, Country.x, Wage_Gap_Value) %>% 
-  filter(Wage_Gap_Value >= Avg_WGV) 
+  filter(Wage_Gap_Value >= Avg_wage_gap_value) 
   
-num_c_aboveWGV <- nrow(C_aboveWGV)
-#Is the country that has the lowest wage gap value has the highest HDI.Rank?
-HDI_low <- Final %>% 
-  filter(min_val == min(Wage_Gap_Value)) %>% 
-  pull(HDI.Rank) 
-Country <- Final$Country.x[Final$HDI.Rank == HDI_low]
-HDI_high <- Final$Country.x[Final$HDI.Rank == min(Final$HDI.Rank, na.rm = TRUE)] 
+num_above_average<- nrow(C_aboveWGV)
 
+# Country that has the lowest wap gap value (i.e. has the most equal pay) 
+min_gap <- min(Final$Wage_Gap_Value)
+country <- Final %>%
+  filter(Wage_Gap_Value == min_gap) %>%
+  pull(Country.x)
 
-
-  
-
-
-
-
-
-
-
-
-
+summary_info <- list(Avg_wage_gap_value,
+                     Median_wage_gap_value, 
+                     average_gender_index,
+                     num_above_average,
+                     min_gap)
