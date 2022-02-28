@@ -137,7 +137,8 @@ NA
 source("../source/p02 Chart.R")
 source("../source/p02 boxplot chart.R")
 source("../source/p02-line_graph.R")
-source("../source/p02_code(For Cleaning up data and Calculations).R")
+source("../source/summary.R")
+source("../source/table.R")
 ```
 
 ```{r, echo=FALSE}

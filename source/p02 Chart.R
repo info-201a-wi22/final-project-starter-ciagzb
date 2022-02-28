@@ -1,9 +1,11 @@
+# Hao Chen
 # install.packages("plotly")
 # install.packages("reshape2")
 library(ggplot2)
 library(reshape2)
 library(dplyr)
-df <- read.csv("../data/Clean_up Data for p02.csv")
+df <- read.csv("../data/clean_data.csv")
+
 # View(df)
 #plot <- ggplot(df, aes(x=Country.x, y=Gender_Index_2019+Wage_Gap_Value)) + 
 #  geom_bar(position="stack", stat = "identity") +
