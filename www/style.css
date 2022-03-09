@@ -1,0 +1,21 @@
+@import url('https://fonts.googleapis.com/css2?family=Rancho&effect=fire&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Yusei+Magic&display=swap');
+
+
+body {
+  background-color: black;
+  color: white;
+  font-family: 'Yusei Magic', sans-serif;
+}
+
+h2 {
+  font-family: 'Rancho', sans-serif;
+}
+
+h3 {
+  font-famlity: 'Yusei Magic', sans-serif;
+}
+
+.shiny-input-container {
+  color: #474747;
+}

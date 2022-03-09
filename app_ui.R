@@ -118,6 +118,7 @@ my_ui <- navbarPage(
   page5 <- tabPanel(
     "Report",
     fluidPage(
+      includeCSS("www/style.css"),
       column(
         12,
         includeMarkdown("docs/report.md")
