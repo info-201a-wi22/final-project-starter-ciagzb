@@ -1,3 +1,5 @@
+library(markdown)
+library(shiny)
 source("app_server.R")
 df <- read.csv("./data/clean_data.csv")
 wage <- read.csv("./data/DP_LIVE_18022022014344236.csv")
@@ -112,5 +114,14 @@ my_ui <- navbarPage(
     "Summary Page",
     titlePanel("Summary"),
     summary
+  ),
+  page5 <- tabPanel(
+    "Report",
+    fluidPage(
+      column(
+        12,
+        includeMarkdown("docs/report.md")
+      )
+    )
   )
 )

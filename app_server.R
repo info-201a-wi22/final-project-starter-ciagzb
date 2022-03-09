@@ -6,6 +6,7 @@ library(markdown)
 my_server <- function(input, output) {
   
   output$lineplot2 <- renderPlotly({
+    #Line graph
     wage <- read.csv("./data/DP_LIVE_18022022014344236.csv")
     three_countries <- wage %>%
           filter(LOCATION == "NOR"|LOCATION =="USA"|LOCATION =="MEX", 
@@ -23,7 +24,7 @@ my_server <- function(input, output) {
     return(plot)
   })
   
-  #chart1graph 
+  #Barchart
   lineplot_data <- reactive({
     data <- read.csv("./data/clean_data.csv", stringsAsFactors = FALSE)
     temp <- data %>% 
@@ -39,7 +40,7 @@ my_server <- function(input, output) {
     ggplot(lineplot_data2, aes(x=Country.x, y=y)) + 
       geom_bar(stat = "identity",color="yellow") + coord_flip() +
       xlab("Country")+ labs(title = "Wage gap value or Gender index vary by country", y ="Value")})
-  #chart2graph
+  #Boxplot
   output$boxplot <- renderPlotly({
     
     boxplot_data2 <- df %>% 
@@ -50,9 +51,4 @@ my_server <- function(input, output) {
     plot <- ggplot(boxplot_data2, aes(x="", y=Gender_Index_2019)) + geom_boxplot() + 
       ylab(paste0("Wage Gap Value in ", input$TIME)) + labs(title = "Boxplot of gender index")
   })
-  #chart3graph
-  # output$markdown <- renderUI({
-  #   HTML(markdown::markdownToHTML(knit("index.rmd",quiet = TRUE)))
-  # })
-  
   }
