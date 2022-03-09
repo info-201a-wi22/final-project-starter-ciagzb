@@ -22,14 +22,9 @@ desc2 <- p("Purpose : The bar chart contains the wage gap value and the gender
            have the least wage gap followed by Romania, New Zealand and Norway in my data.")
 
 
-desc3 <- p("Purpose: This bar chart records the wage gap value per country in a descending order. 
-As we can see in the chart, different countries vary greatly in wage gap values. 
-For example, in Korea, the index is more than 30 while in New Zealand, it is less than 10. 
-This chart gives us a general idea of the distribution of wage gaps around the world and how 
-different countries vary.
-Insights: As we can see in the chart, there is a huge gap between the biggest wage gap value 
-           and the least wage gap value. North Korea, Israel and Japan have the biggest wage gap value. 
-           Columbia, Costa Rica and Bulgaria have the smallest wage gap values.")
+desc3 <- p("Purpose: This box plot visualized the distribution of the gender index of the countries in the data.
+ Insight: From this distribution we can know a large part of the country has pretty low gender inequality index and 
+ we can know to what extent is gender difference influencing the wage gap in the country")
 
 my_ui <- navbarPage(
   "Flying Tiger",
