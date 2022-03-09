@@ -6,6 +6,7 @@
 library(dplyr)
 library(ggplot2)
 library(plotly)
+library(shiny)
 wage <- read.csv("../data/DP_LIVE_18022022014344236.csv")
 
 # Understand the increase/decrease in wage gap in Norway, USA, and Mexico
@@ -15,25 +16,53 @@ wage <- read.csv("../data/DP_LIVE_18022022014344236.csv")
 # for countries with different HDI ranks.
 # Wage gap percentage = (median wage of men - median wage of women)/median wage of men
 
-three_countries <- wage %>%
-  filter(LOCATION == "NOR"|LOCATION =="USA"|LOCATION =="MEX", 
-         SUBJECT == "EMPLOYEE") %>%
-  filter(TIME == 2005|TIME == 2010|TIME == 2015|TIME ==2020)
+ three_countries <- wage %>%
+   filter(LOCATION == "NOR"|LOCATION =="USA"|LOCATION =="MEX", 
+          SUBJECT == "EMPLOYEE") %>%
+   filter(TIME == 2005|TIME == 2010|TIME == 2015|TIME ==2020)
+# 
+# plot1 <- ggplot(data = three_countries, 
+#         aes(x = TIME, y = Value, color = LOCATION)) +
+#     geom_point() +
+#     geom_line()+
+#     labs(
+#     title = "Compare Gender Wage Gap by Year in Norway, US, Mexico ",
+#     x = "Year",
+#     y = "Wage Gap Percentage",
+#     color = "Country"
+#   ) +
+#   facet_wrap(~LOCATION)
+# 
+# plot1
 
-plot1 <- ggplot(data = three_countries, 
-        aes(x = TIME, y = Value, color = LOCATION)) +
-    geom_point() +
-    geom_line()+
-    labs(
-    title = "Compare Gender Wage Gap by Year in Norway, US, Mexico ",
-    x = "Year",
-    y = "Wage Gap Percentage",
-    color = "Country"
-  ) +
-  facet_wrap(~LOCATION)
+my_server <- function(input, output) {
+  
+  output$lineplot <- renderPlotly({
+    
+    three_countries <- three_countries %>% 
+      filter(LOCATION == input$LOCATION) %>% 
+      drop_na()
+    
+    ggplot(three_countries, aes(x=TIME, y=Value)) +
+      geom_line() +
+      geom_point() +labs(title ="Compare Gender Wage Gap by Year in Norway, US, Mexico ", x =" Year", y = "Wage Gap Percentage")
+  })
+}
 
-# It can be seen in the graphs that the US has the widest gap while Norway
-# has the least gap percentage. This result contradicts the HDI ranking, 
-# which means that although the US is a generally wealthy and developed country, 
-# gender equality still has room for improvement here. Mexico has the largest
-# decrease in gender wage gap, from 16.67% in 2005 to 9.61% in 2020.
+ui <- fluidPage(
+page2 <- tabPanel(
+  "Visualization",
+  titlePanel("Linegraph"),
+  sidebarLayout(      
+    sidebarPanel(
+      selectInput("LOCATION","Choose LOCATION",
+                  choices = list("MEX","NOR","USA")),
+    ),
+    mainPanel(
+      plotlyOutput("lineplot")  
+    )
+  )
+)
+)
+
+shinyApp(server = my_server, ui = ui)
