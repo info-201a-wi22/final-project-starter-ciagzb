@@ -6,16 +6,24 @@ library(markdown)
 my_server <- function(input, output) {
   
   output$lineplot2 <- renderPlotly({
+    wage <- read.csv("./data/DP_LIVE_18022022014344236.csv")
+    three_countries <- wage %>%
+          filter(LOCATION == "NOR"|LOCATION =="USA"|LOCATION =="MEX", 
+           SUBJECT == "EMPLOYEE") %>%
+      filter(TIME == 2005|TIME == 2010|TIME == 2015|TIME == 2020)%>%
+      filter(LOCATION == input$place) 
     
-    three_countries <- three_countries %>% 
-      filter(LOCATION == input$LOCATION) %>% 
-      drop_na()
-    
-    ggplot(three_countries, aes(x=TIME, y=Value)) +
+    plot <- ggplot(three_countries, aes(x=TIME, y=Value)) +
       geom_line() +
-      geom_point() +labs(title ="Compare Gender Wage Gap by Year in Norway, US, Mexico ", x =" Year", y = "Wage Gap Percentage")
+      geom_point() +
+      labs(title ="Compare Gender Wage Gap by Year in Norway, US, Mexico ", 
+           x =" Year", 
+           y = "Wage Gap Percentage")
+    
+    return(plot)
   })
-  #chart1graoh 
+  
+  #chart1graph 
   lineplot_data <- reactive({
     data <- read.csv("./data/clean_data.csv", stringsAsFactors = FALSE)
     temp <- data %>% 
