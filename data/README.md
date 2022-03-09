@@ -11,6 +11,8 @@ In our project, we use the following data files and Application Programming Inte
 |[UK_Gender_Pay_Gap_Data.csv](./UK_Gender_Pay_Gap_Data.csv) | UK Gender Pay Gap Data - 2021 to 2022
 |[Work_Hour_Prediction_Challenge.csv](./Work_Hour_Prediction_Challenge.csv) | Work Hour Prediction Challenge from Kaggle
 |[Exploring_The_Wage_Gap.csv](./Exploring_The_Wage_Gap.csv) | Exploring The Wage Gap from Kaggle
+|[Clean_up Data for p02.csv](./Clean_up%20Data%20for%20p02.csv) | The data we need after classification
+|[Gender Inequality Index (GII).csv](./Gender%20Inequality%20Index%20(GII).csv) | Gender Inequality Index (GII) data
 
 ### Application Programming Interfaces (API) (TODO: Update/delete)
 
