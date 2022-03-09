@@ -26,6 +26,25 @@ desc3 <- p("Purpose: This box plot visualized the distribution of the gender ind
  Insight: From this distribution we can know a large part of the country has pretty low gender inequality index and 
  we can know to what extent is gender difference influencing the wage gap in the country")
 
+summary <- p("Through primary investigations and research, 
+our group established a project which aims to solve questions: 
+Which countries in the world have the most equal gender pay? 
+Which countries have the least? What is the trend of gender pay gap in the recent decades? 
+Our project now contains enough data support and statistical analysis. 
+By using plots and tables we have made, we are able to learn different countries' 
+different wage situations. We have calculated some values regarding the gender wage 
+gap and gender index statistics of the countries given in the data, and also, 
+we calculated the average Gender Inequality Index and Wage Gap Value of the 
+given countries. A lot of useful data is found. For example, Asian countries, 
+such as South Korea and Japan, are the countries with the widest wage gap and 
+Scandinavian countries tend to have lower gender inequality values and have narrower 
+wage gaps as well. Also, by observing data from the graph of pay gaps in Norway, 
+Mexico, and the United States from 2005 to 2020, we found the gender wage gap 
+is decreasing in the past decade. Our work would be helpful for solving our questions, 
+and finally come up with conclusions. Inevitably, there are still limitations 
+to the results, due to the dataset we found is limited in the number of countries. 
+This might not be comprehensive to analyze the overall trends in the world.")
+
 my_ui <- navbarPage(
   "Flying Tiger",
   Introduction <- tabPanel(
@@ -88,5 +107,10 @@ my_ui <- navbarPage(
         desc3
       )
     )
+  ),
+  page4 <- tabPanel(
+    "Summary Page",
+    titlePanel("Summary"),
+    summary
   )
 )
